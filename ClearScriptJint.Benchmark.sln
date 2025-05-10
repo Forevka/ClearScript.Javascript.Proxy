@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClearScript.Javascript.Prox
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClearScript.Javascript.Proxy.Jexl.Tests", "ClearScript.Javascript.Proxy.Jexl.Tests\ClearScript.Javascript.Proxy.Jexl.Tests.csproj", "{4422704B-9E4D-405C-8F99-9465CC820607}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClearScript.Javascript.Proxy.Jexl.Playground", "ClearScript.Javascipt.Proxy.Jexl.Playground\ClearScript.Javascript.Proxy.Jexl.Playground.csproj", "{0E499EAA-BD9D-4A04-9583-E12D6256E741}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{4422704B-9E4D-405C-8F99-9465CC820607}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4422704B-9E4D-405C-8F99-9465CC820607}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4422704B-9E4D-405C-8F99-9465CC820607}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E499EAA-BD9D-4A04-9583-E12D6256E741}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E499EAA-BD9D-4A04-9583-E12D6256E741}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E499EAA-BD9D-4A04-9583-E12D6256E741}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E499EAA-BD9D-4A04-9583-E12D6256E741}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

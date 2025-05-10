@@ -82,6 +82,12 @@ public class ScriptProxy<T> : DispatchProxy where T : IV8EngineObjectInstance
     }
 }
 
+public class NativeInstanceObject
+{
+    public string GlobalName { get; set; }
+    public dynamic Instance { get; set; }
+}
+
 public interface IScriptInstanceFactory<out TScriptTargetType> : IDisposable 
     where TScriptTargetType : class, IV8EngineObjectInstance
 {
@@ -89,12 +95,12 @@ public interface IScriptInstanceFactory<out TScriptTargetType> : IDisposable
 
     public void CreateNativeInstanceInEngine();
 
-    public ScriptObject GetNativeInstanceObject();
+    public NativeInstanceObject GetNativeInstanceObject();
 
     public TScriptTargetType GetInstance()
     {
         var proxy = DispatchProxy.Create<TScriptTargetType, ScriptProxy<TScriptTargetType>>() as ScriptProxy<TScriptTargetType>;
-        proxy!.TargetObject = GetNativeInstanceObject();
+        proxy!.TargetObject = GetNativeInstanceObject().Instance;
         return proxy as TScriptTargetType ?? throw new InvalidCastException();
     }
 }

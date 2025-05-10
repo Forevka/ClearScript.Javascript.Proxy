@@ -11,8 +11,12 @@ public class JexlScriptInstanceFactory : IScriptInstanceFactory<IJexl>
     private readonly string _instanceId = Guid.NewGuid().ToString().Replace("-", "");
     private ScriptObject _instance = null!;
 
+    private string _instanceGlobalName = null!;
+
     public V8ScriptEngine Init()
     {
+        _instanceGlobalName = $"globalThis.jexlInstance{_instanceId}";
+
         _engine = new V8ScriptEngine(
             $"jexl-{_instanceId}",
             V8ScriptEngineFlags.EnableTaskPromiseConversion |
@@ -47,15 +51,19 @@ public class JexlScriptInstanceFactory : IScriptInstanceFactory<IJexl>
             "if (typeof jexlModule === 'undefined') {" +
             "let jexlModule = require('Jexl.js');" +
             $"}}" +
-            $"globalThis.jexlInstance{_instanceId} = new jexlModule.Jexl();"
+            $"{_instanceGlobalName} = new jexlModule.Jexl();"
         );
 
-        _instance = _engine.Script[$"jexlInstance{_instanceId}"];
+        _instance = _engine.Script[$"{_instanceGlobalName}"];
     }
 
-    public ScriptObject GetNativeInstanceObject()
+    public NativeInstanceObject GetNativeInstanceObject()
     {
-        return _instance;
+        return new NativeInstanceObject
+        {
+            Instance = _instance,
+            GlobalName = _instanceGlobalName,
+        };
     }
 
     public void Dispose()

@@ -31,7 +31,7 @@ public class ExpressionBenchmarksTests : IDisposable
             return $"async-{val}-{args}";
         });
 
-        _jexlScriptInstanceFactory.GetNativeInstanceObject();
+        dynamic nativeInstance = _jexlScriptInstanceFactory.GetNativeInstanceObject();
     }
 
     public void Dispose()
