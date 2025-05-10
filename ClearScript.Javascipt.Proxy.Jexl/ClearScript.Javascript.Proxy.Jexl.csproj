@@ -1,26 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BenchmarkDotNet" Version="0.14.0" />
-    <PackageReference Include="Jint" Version="4.2.2" />
-    <PackageReference Include="Microsoft.ClearScript.V8" Version="7.5.0" />
-    <PackageReference Include="Microsoft.ClearScript.V8.Native.win-x64" Version="7.5.0" />
-    <PackageReference Include="Microsoft.ClearScript.V8.Native.win-x86" Version="7.5.0" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.13.0" />
-    <PackageReference Include="xunit.extensibility.core" Version="2.9.3" />
+    <ProjectReference Include="..\ClearScript.Javascript.Proxy\ClearScript.Javascript.Proxy.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="dist\jexl.min.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Update="jexl\lib\evaluator\Evaluator.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

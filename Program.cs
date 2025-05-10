@@ -13,7 +13,9 @@ namespace JexlEngineBench
 
         public static async Task Main(string[] args)
         {
-            _v8Engine = new V8ScriptEngine();
+            _v8Engine = new V8ScriptEngine(
+                V8ScriptEngineFlags.EnableTaskPromiseConversion |
+                V8ScriptEngineFlags.UseSynchronizationContexts);
 
             _v8Engine.DocumentSettings.AccessFlags = DocumentAccessFlags.EnableAllLoading;
             _v8Engine.DocumentSettings.SearchPath = Path.GetFullPath("./jexl/lib");

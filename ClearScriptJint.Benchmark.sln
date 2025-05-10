@@ -1,9 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35825.156 d17.13
+VisualStudioVersion = 17.13.35825.156
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClearScriptJint.Benchmark", "ClearScriptJint.Benchmark.csproj", "{89A24DC0-141C-4B6D-8402-651B239048CF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClearScript.Javascript.Proxy", "ClearScript.Javascript.Proxy\ClearScript.Javascript.Proxy.csproj", "{986845B4-F315-4015-BF7E-F4F689218460}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClearScript.Javascript.Proxy.Jexl", "ClearScript.Javascipt.Proxy.Jexl\ClearScript.Javascript.Proxy.Jexl.csproj", "{45A59CF0-CF7F-4DE8-BD13-61DABF4F7E3F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClearScript.Javascript.Proxy.Jexl.Benchmark", "ClearScript.Javascript.Proxy.Jexl.Benchmark\ClearScript.Javascript.Proxy.Jexl.Benchmark.csproj", "{E2556AC4-33F7-4FD6-A6B8-24E56E239C92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClearScript.Javascript.Proxy.Jexl.Tests", "ClearScript.Javascript.Proxy.Jexl.Tests\ClearScript.Javascript.Proxy.Jexl.Tests.csproj", "{4422704B-9E4D-405C-8F99-9465CC820607}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +17,22 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{89A24DC0-141C-4B6D-8402-651B239048CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{89A24DC0-141C-4B6D-8402-651B239048CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{89A24DC0-141C-4B6D-8402-651B239048CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{89A24DC0-141C-4B6D-8402-651B239048CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{986845B4-F315-4015-BF7E-F4F689218460}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{986845B4-F315-4015-BF7E-F4F689218460}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{986845B4-F315-4015-BF7E-F4F689218460}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{986845B4-F315-4015-BF7E-F4F689218460}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45A59CF0-CF7F-4DE8-BD13-61DABF4F7E3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45A59CF0-CF7F-4DE8-BD13-61DABF4F7E3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45A59CF0-CF7F-4DE8-BD13-61DABF4F7E3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45A59CF0-CF7F-4DE8-BD13-61DABF4F7E3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2556AC4-33F7-4FD6-A6B8-24E56E239C92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2556AC4-33F7-4FD6-A6B8-24E56E239C92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2556AC4-33F7-4FD6-A6B8-24E56E239C92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2556AC4-33F7-4FD6-A6B8-24E56E239C92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4422704B-9E4D-405C-8F99-9465CC820607}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4422704B-9E4D-405C-8F99-9465CC820607}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4422704B-9E4D-405C-8F99-9465CC820607}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4422704B-9E4D-405C-8F99-9465CC820607}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
