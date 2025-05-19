@@ -15,12 +15,15 @@ public class JexlScriptInstanceFactory : IScriptInstanceFactory<IJexl>
 
     public V8ScriptEngine Init()
     {
-        _instanceGlobalName = $"jexlInstance{_instanceId}";
+        _instanceGlobalName = $"jexlInstance";
 
         _engine = new V8ScriptEngine(
             $"jexl-{_instanceId}",
             V8ScriptEngineFlags.EnableTaskPromiseConversion |
-            V8ScriptEngineFlags.UseSynchronizationContexts);
+            V8ScriptEngineFlags.UseSynchronizationContexts |
+            V8ScriptEngineFlags.EnableDebugging |
+            //V8ScriptEngineFlags.AwaitDebuggerAndPauseOnStart | 
+            V8ScriptEngineFlags.EnableRemoteDebugging);
 
         _engine.DocumentSettings.AccessFlags = DocumentAccessFlags.EnableAllLoading;
         _engine.DocumentSettings.SearchPath = Path.GetFullPath("./jexl/lib");
@@ -38,7 +41,7 @@ public class JexlScriptInstanceFactory : IScriptInstanceFactory<IJexl>
 
         _engine.Execute(
             "let jexlModule = require('Jexl.js');" +
-            "globalThis.jexlInstance = new jexlModule.Jexl();"
+            $"globalThis.{_instanceGlobalName} = new jexlModule.Jexl();"
         );
 
         return _engine;
@@ -48,10 +51,10 @@ public class JexlScriptInstanceFactory : IScriptInstanceFactory<IJexl>
     public void CreateNativeInstanceInEngine()
     {
         _engine.Execute(
-            "if (typeof jexlModule === 'undefined') {" +
-            "let jexlModule = require('Jexl.js');" +
-            $"}}" +
-            $"globalThis.{_instanceGlobalName} = new jexlModule.Jexl();"
+            $"if (globalThis.{_instanceGlobalName} === 'undefined') {{" +
+                "let jexlModule = require('Jexl.js');" +
+                $"globalThis.{_instanceGlobalName} = new jexlModule.Jexl();" +
+            $"}}"
         );
 
         _instance = _engine.Script[$"{_instanceGlobalName}"];
@@ -63,6 +66,7 @@ public class JexlScriptInstanceFactory : IScriptInstanceFactory<IJexl>
         {
             Instance = _instance,
             GlobalName = _instanceGlobalName,
+            Runner = _engine,
         };
     }
 

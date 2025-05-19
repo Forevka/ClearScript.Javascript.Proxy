@@ -84,8 +84,24 @@ public class ScriptProxy<T> : DispatchProxy where T : IV8EngineObjectInstance
 
 public class NativeInstanceObject
 {
+    /// <summary>
+    /// Object instance global name
+    /// </summary>
     public string GlobalName { get; set; }
+
+    /// <summary>
+    /// Reference to the JS instance
+    /// It can be used in .net by simply calling js methods over this instance
+    /// example:
+    /// var a = nativeInstanceObject.Instance;
+    /// var result = a.someJsMethod(1, 2);
+    /// </summary>
     public dynamic Instance { get; set; }
+
+    /// <summary>
+    /// In case you need to run js code with instance context
+    /// </summary>
+    public V8ScriptEngine Runner { get; set; }
 }
 
 public interface IScriptInstanceFactory<out TScriptTargetType> : IDisposable 
