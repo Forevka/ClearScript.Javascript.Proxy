@@ -15,7 +15,7 @@ public class JexlScriptInstanceFactory : IScriptInstanceFactory<IJexl>
 
     public V8ScriptEngine Init()
     {
-        _instanceGlobalName = $"globalThis.jexlInstance{_instanceId}";
+        _instanceGlobalName = $"jexlInstance{_instanceId}";
 
         _engine = new V8ScriptEngine(
             $"jexl-{_instanceId}",
@@ -51,7 +51,7 @@ public class JexlScriptInstanceFactory : IScriptInstanceFactory<IJexl>
             "if (typeof jexlModule === 'undefined') {" +
             "let jexlModule = require('Jexl.js');" +
             $"}}" +
-            $"{_instanceGlobalName} = new jexlModule.Jexl();"
+            $"globalThis.{_instanceGlobalName} = new jexlModule.Jexl();"
         );
 
         _instance = _engine.Script[$"{_instanceGlobalName}"];
